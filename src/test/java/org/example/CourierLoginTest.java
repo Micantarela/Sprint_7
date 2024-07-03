@@ -43,7 +43,7 @@ public class CourierLoginTest {
     @Test
     @DisplayName("Failed login test with wrong login")
     @Description("Неуспешная авторизация с несуществующим логином")
-    public void failedLoginTest_WrongLogin() {
+    public void failedLoginTestWrongLogin() {
         Response response = TestUtil.loginCourierWithResponse(INVALID_LOGIN, PASSWORD);
         response.then()
             .statusCode(404)
@@ -54,7 +54,7 @@ public class CourierLoginTest {
     @Test
     @DisplayName("Failed login test with wrong password")
     @Description("Неуспешная авторизация с неверным паролем")
-    public void failedLoginTest_WrongPassword() {
+    public void failedLoginTestWrongPassword() {
         Response response = TestUtil.loginCourierWithResponse(LOGIN, INVALID_PASSWORD);
         response.then()
             .statusCode(404)
@@ -65,7 +65,7 @@ public class CourierLoginTest {
     @Test
     @DisplayName("Failed login test with null login")
     @Description("Неуспешная авторизация с пустым полем login")
-    public void failedLoginTest_LoginIsNull() {
+    public void failedLoginTestLoginIsNull() {
         Response response = TestUtil.loginCourierWithResponse(null, PASSWORD);
         response.then()
             .statusCode(400)
@@ -76,7 +76,7 @@ public class CourierLoginTest {
     @Test
     @DisplayName("Failed login test with null password")
     @Description("Неуспешная авторизация с пустым полем password")
-    public void failedLoginTest_PasswordIsNull() {
+    public void failedLoginTestPasswordIsNull() {
         Response response = TestUtil.loginCourierWithResponse(LOGIN, null);
         response.then()
             .statusCode(400)

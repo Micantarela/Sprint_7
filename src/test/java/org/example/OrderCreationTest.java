@@ -1,5 +1,6 @@
 package org.example;
 
+import com.github.javafaker.Faker;
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import org.example.dto.OrderCreationDto;
@@ -19,6 +20,7 @@ public class OrderCreationTest {
     private static final String TRACK_FIELD = "track";
 
     private final Set<String> color;
+    private static final Faker faker = new Faker();
 
     public OrderCreationTest(Set<String> color) {
         this.color = color;
@@ -50,8 +52,16 @@ public class OrderCreationTest {
     }
 
     private OrderCreationDto getDefaultOrderCreationDto() {
-        return new OrderCreationDto("Naruto", "Uchiha", "Konoha, 142 apt.", "Shibuya",
-            "+7 800 355 35 35", 5, LocalDate.now().toString(), "Saske, come back to Konoha", null);
+        return new OrderCreationDto(
+                faker.name().firstName(),
+                faker.name().lastName(),
+                faker.address().streetAddress(),
+                faker.address().city(),
+                faker.phoneNumber().phoneNumber(),
+                faker.random().nextInt(10),
+                LocalDate.now().toString(),
+                faker.backToTheFuture().quote(),
+                null);
     }
 
 }

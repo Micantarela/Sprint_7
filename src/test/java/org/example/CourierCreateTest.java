@@ -42,7 +42,7 @@ public class CourierCreateTest {
     @Test
     @DisplayName("Failed creation test with null login field")
     @Description("Неуспешное создание курьера с пустым полем login")
-    public void failedCreationTest_LoginIsNull() {
+    public void failedCreationTestLoginIsNull() {
         Response response = TestUtil.createCourier(null, PASSWORD, FIRSTNAME);
         response.then()
             .statusCode(400)
@@ -53,7 +53,7 @@ public class CourierCreateTest {
     @Test
     @DisplayName("Failed creation test with null password field")
     @Description("Неуспешное создание курьера с пустым полем password")
-    public void failedCreationTest_PasswordIsNull() {
+    public void failedCreationTestPasswordIsNull() {
         Response response = TestUtil.createCourier(LOGIN, null, FIRSTNAME);
         response.then()
             .statusCode(400)
